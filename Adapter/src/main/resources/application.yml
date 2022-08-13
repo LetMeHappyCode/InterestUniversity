@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: adapter # 服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 101.43.210.106:8849
+
+feign:
+  client:
+    config:
+      default: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置
+        loggerLevel: FULL #  日志级别

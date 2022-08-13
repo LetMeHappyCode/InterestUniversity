@@ -1,0 +1,33 @@
+server:
+  port: 8111 # 服务端口
+#  port: 8110 # 服务端口
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: community # 服务名
+  datasource: # mysql数据库连接
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.43.210.106:3306/community?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: 123456@Qaz
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 101.43.210.106:8849
+
+#阿里云文件上传Oss配置
+aliyun:
+  oss:
+    endpoint: https://oss-cn-hangzhou.aliyuncs.com
+    keyId: LTAI5tESqSDfQKMBAq1yekez
+    keySecret: jhSqTFGZJ5egZl60dLi1uOgOhMdhLZ
+    bucketName: srb-yhx
+
+
+mybatis-plus: #mybatis
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/interest/community/mapper/xml/*.xml

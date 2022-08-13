@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.interest.community.mapper.IssueMapper">
+
+    <resultMap id="BaseResultMap" type="com.interest.community.pojo.Issue">
+            <id property="issueId" column="issue_id" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="issueType" column="issue_type" jdbcType="VARCHAR"/>
+            <result property="issueInformation" column="issue_information" jdbcType="VARCHAR"/>
+            <result property="issueImageUrl" column="issue_image_url" jdbcType="VARCHAR"/>
+            <result property="issueRelayId" column="issue_relay_id" jdbcType="VARCHAR"/>
+            <result property="issueRelayNum" column="issue_relay_num" jdbcType="INTEGER"/>
+            <result property="issueCommentId" column="issue_comment_id" jdbcType="VARCHAR"/>
+            <result property="issueCommentNum" column="issue_comment_num" jdbcType="INTEGER"/>
+            <result property="issuePraiseId" column="issue_praise_id" jdbcType="VARCHAR"/>
+            <result property="issuePraiseNum" column="issue_praise_num" jdbcType="INTEGER"/>
+            <result property="issueStatus" column="issue_status" jdbcType="INTEGER"/>
+            <result property="issuePublicationDate" column="issue_publication_date" jdbcType="TIMESTAMP"/>
+            <result property="issueLastModifiedData" column="issue_last_modified_data" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        issue_id,user_id,issue_type,
+        issue_information,issue_image_url,issue_relay_id,
+        issue_relay_num,issue_comment_id,issue_comment_num,
+        issue_praise_id,issue_praise_num,issue_status,
+        issue_publication_date,issue_last_modified_data
+    </sql>
+</mapper>
