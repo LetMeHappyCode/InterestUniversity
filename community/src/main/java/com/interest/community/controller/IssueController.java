@@ -33,7 +33,7 @@ public class IssueController {
 
     @ApiOperation(value = "发布消息")
     @PostMapping("/save")
-    public JSONObject saveIssue(@ApiParam(value = "一条动态") @RequestBody Issue issue, @RequestParam("files") MultipartFile[] files){
+    public JSONObject saveIssue(@ApiParam(value = "一条动态") @RequestPart("issue") Issue issue, @RequestPart("files") MultipartFile[] files){
         JSONObject jsonObject = new JSONObject();
 //        boolean save = issueService.save(issue);
         log.info("saveIssueCon");
