@@ -65,12 +65,9 @@ public class FileController {
     public JSONObject deleteFile(@ApiParam(value = "文件路径",required = true)
                            @RequestParam("fileUrl") String fileUrl){
         JSONObject returnMsg = new JSONObject();
-        Boolean isFileDelete = fileService.deleteOneFile(fileUrl);
-        if (isFileDelete) {
-            returnMsg.put("RespInfo",R.ok().message("文件删除成功"));
-        }else {
-            returnMsg.put("RespInfo",R.error().message("文件删除失败"));
-        }
+        R RespInfo = fileService.deleteOneFile(fileUrl);
+
+        returnMsg.put("RespInfo",R.ok().message("文件删除成功"));
 
         return returnMsg;
     }

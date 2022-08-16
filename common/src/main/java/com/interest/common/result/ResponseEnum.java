@@ -20,6 +20,13 @@ public enum ResponseEnum {
     UPLOAD_ERROR(-103, "文件上传错误"),
     EXPORT_DATA_ERROR(104, "数据导出失败"),
 
+    //oss文件
+    FILE_DELETE_EXIST_ERROR(-901,"文件不存在"),
+    FILE_DELETE_ERROR(-902,"文件删除失败"),
+
+    FILE_DELETE_EXCEPTION_ERROR(-903,"请求被拒绝"),
+    FILE_DELETE_COMMUNICATE_ERROR(-904,"通信出现问题"),
+
 
     //-2xx 参数校验
     BORROW_AMOUNT_NULL_ERROR(-201, "借款额度不能为空"),

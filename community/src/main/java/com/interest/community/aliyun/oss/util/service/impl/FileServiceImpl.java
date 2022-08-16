@@ -7,6 +7,8 @@ import com.aliyun.oss.OSSException;
 import com.aliyun.oss.model.CannedAccessControlList;
 import com.aliyun.oss.model.DeleteObjectsRequest;
 import com.aliyun.oss.model.DeleteObjectsResult;
+import com.interest.common.result.R;
+import com.interest.common.result.ResponseEnum;
 import com.interest.community.aliyun.oss.util.OssPreperties;
 import com.interest.community.aliyun.oss.util.service.FileService;
 import org.joda.time.DateTime;
@@ -48,22 +50,34 @@ public class FileServiceImpl implements FileService {
         ossClient.shutdown();
 
         //阿里云文件绝对路径
-        return "https://" + OssPreperties.BUCKET_NAME + "." + OssPreperties.ENDPOINT + "/" + key;
+        return "https://" + OssPreperties.BUCKET_NAME + "." + OssPreperties.ENDPOINT.substring(8) + "/" + key;
     }
 
     @Override
-    public Boolean deleteOneFile(String fileUrl) {
-
+    public R deleteOneFile(String fileUrl) {
+        //传入图片url  ==》 获得路径（如：issue/2022/08/16/89481f59-4972-4a2a-924d-2920badeda98.jpeg）
+        fileUrl=fileUrl.substring(fileUrl.indexOf("issue"));
+        boolean isFound=true;
         // 创建OSSClient实例。
         OSS ossClient = new OSSClientBuilder().build(OssPreperties.ENDPOINT, OssPreperties.KEY_ID, OssPreperties.KEY_SECRET);
 
 
         try {
-            boolean found = ossClient.doesObjectExist(OssPreperties.BUCKET_NAME, fileUrl);
-            System.out.println("文件是否存在"+found);
-            // 删除文件或目录。如果要删除目录，目录必须为空。
+            //1.删除前，判断文件是否存在
+            isFound = ossClient.doesObjectExist(OssPreperties.BUCKET_NAME, fileUrl);
+            if (!isFound){
+                return R.setResult(ResponseEnum.FILE_DELETE_EXIST_ERROR);
+            }
+
+            // 2. 删除文件或目录。如果要删除目录，目录必须为空。
             ossClient.deleteObject(OssPreperties.BUCKET_NAME, fileUrl);
-            System.out.println("删除一个文件");
+
+            //3. 删除后，判断文件是否被删除
+            isFound = ossClient.doesObjectExist(OssPreperties.BUCKET_NAME, fileUrl);
+            if (isFound){
+                return R.setResult(ResponseEnum.FILE_DELETE_ERROR);
+            }
+
         } catch (OSSException oe) {
             System.out.println("Caught an OSSException, which means your request made it to OSS, "
                     + "but was rejected with an error response for some reason.");
@@ -71,20 +85,20 @@ public class FileServiceImpl implements FileService {
             System.out.println("Error Code:" + oe.getErrorCode());
             System.out.println("Request ID:" + oe.getRequestId());
             System.out.println("Host ID:" + oe.getHostId());
-            return false;
+            return R.setResult(ResponseEnum.FILE_DELETE_EXCEPTION_ERROR);
         } catch (ClientException ce) {
             System.out.println("Caught an ClientException, which means the client encountered "
                     + "a serious internal problem while trying to communicate with OSS, "
                     + "such as not being able to access the network.");
             System.out.println("Error Message:" + ce.getMessage());
-            return false;
+            return R.setResult(ResponseEnum.FILE_DELETE_COMMUNICATE_ERROR);
         } finally {
             if (ossClient != null) {
                 ossClient.shutdown();
             }
         }
 
-        return true;
+        return R.ok().message("文件删除成功");
     }
 
     @Override
