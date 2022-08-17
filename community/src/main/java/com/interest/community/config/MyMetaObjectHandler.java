@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+/**
+ * 向数据库插入数据时，自动生成时间和修改时间
+ */
 @Slf4j
 @Component
 public class MyMetaObjectHandler  implements MetaObjectHandler {

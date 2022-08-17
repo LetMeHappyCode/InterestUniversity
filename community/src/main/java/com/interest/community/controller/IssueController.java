@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiParam;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -85,6 +86,18 @@ public class IssueController {
         }
 
         return returnMsg;
+    }
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @GetMapping("redisTest")
+    public String testRedis() {
+        //设置值到redis
+        redisTemplate.opsForValue().set("name","lucy");
+        //从redis获取值
+        String name = (String)redisTemplate.opsForValue().get("name");
+        return name;
     }
 
 
