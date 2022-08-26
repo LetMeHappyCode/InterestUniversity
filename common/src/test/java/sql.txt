@@ -1,4 +1,3 @@
-SELECT * FROM `volunteer_info` WHERE ? volunteerId='0437667c688945569eebe1a452f211ee' ?
+==>  Preparing: INSERT INTO issue ( issue_id, user_id, issue_type, issue_information, issue_image_url, issue_relay_id, issue_relay_num, issue_comment_id, issue_comment_num, issue_praise_id, issue_praise_num, issue_status, create_time, update_time, is_deleted ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
 
-Parameters: 86360500(String), 2(String)
-
+==> Parameters: 1559108225125605377(String), 3213(Long), 23(String), 321fdasdasfasf(String), ["https://srb-yhx.https://oss-cn-hangzhou.aliyuncs.com/issue/2022/08/15/73b1cd6f-8e95-4831-a627-4f3a6ff72b34.jpeg","https://srb-yhx.https://oss-cn-hangzhou.aliyuncs.com/issue/2022/08/15/c3f3ac65-45af-4d76-adc8-fb12b4486d74.jpeg",null,null,null,null,null,null,null](String), 3213(String), 0(Integer), 12323(String), 0(Integer), 1244(String), 0(Integer), 0(Integer), 2022-08-15T17:22:22.358(LocalDateTime), 2022-08-15T17:22:22.360(LocalDateTime), 0(Integer)
