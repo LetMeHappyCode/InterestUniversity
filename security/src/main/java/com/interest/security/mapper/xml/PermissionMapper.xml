@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.interest.security.mapper.PermissionMapper">
+
+    <resultMap id="BaseResultMap" type="com.interest.security.pojo.Permission">
+            <id property="permissionId" column="permission_id" jdbcType="CHAR"/>
+            <result property="pid" column="pid" jdbcType="CHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="permissionValue" column="permission_value" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        permission_id,pid,name,
+        type,permission_value,status,
+        is_deleted,create_time,update_time
+    </sql>
+    <select id="selectPermissionValueByUserId" resultType="java.lang.String">
+        select
+        p.permission_id
+        from user_role ur
+        inner join role_permission rp on rp.role_id = ur.role_id
+        inner join permission p on p.permission_id = rp.permission_id
+        where ur.user_id = #{userId}
+        and ur.is_deleted = 0
+        and rp.is_deleted = 0
+        and p.is_deleted = 0
+    </select>
+</mapper>

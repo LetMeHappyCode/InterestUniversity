@@ -1,4 +1,22 @@
+server:
+  port: 8119 # 服务端口
+#  port: 8110 # 服务端口
+
 spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: user # 服务名
+  datasource: # mysql数据库连接
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.43.210.106:3306/user?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: 123456@Qaz
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 101.43.210.106:8849
   redis:
     host: 101.43.210.106    #Redis服务器地址
     password: 123456@Qaz
@@ -11,3 +29,8 @@ spring:
         max-wait: -1        #最大阻塞等待时间(负数表示没限制)
         max-idle: 5         #连接池中的最大空闲连接
         min-idle: 0
+
+mybatis-plus: #mybatis
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/interest/security/mapper/xml/*.xml
