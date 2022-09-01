@@ -1,7 +1,7 @@
 package com.interest.security.mapper;
 
-import com.interest.security.pojo.Permission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.interest.security.pojo.Permission;
 
 import java.util.List;
 
@@ -13,9 +13,11 @@ import java.util.List;
 */
 public interface PermissionMapper extends BaseMapper<Permission> {
 
-    List<String> selectPermissionValueByUserId(String userid);
+    List<String> selectPermissionValueByUserId(String id);
 
     List<String> selectAllPermissionValue();
+
+    List<Permission> selectPermissionByUserId(String userId);
 }
 
 

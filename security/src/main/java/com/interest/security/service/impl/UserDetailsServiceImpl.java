@@ -35,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         BeanUtils.copyProperties(user,curUser);
 
         //根据用户查询用户权限列表
-        List<String> permissionValueList = permissionService.selectPermissionValueByUserId(user.getUserid());
+        List<String> permissionValueList = permissionService.selectPermissionValueByUserId(user.getId());
         System.out.println("用户权限列表"+permissionValueList);
         SecurityUser securityUser = new SecurityUser();
         securityUser.setCurrentUserInfo(curUser);

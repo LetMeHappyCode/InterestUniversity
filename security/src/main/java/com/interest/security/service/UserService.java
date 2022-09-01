@@ -1,7 +1,7 @@
 package com.interest.security.service;
 
-import com.interest.security.pojo.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.interest.security.pojo.User;
 
 /**
 * @author Administrator

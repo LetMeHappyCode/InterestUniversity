@@ -1,133 +1,84 @@
 package com.interest.security.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 import java.util.Date;
-import lombok.Data;
+import java.util.List;
 
 /**
+ * <p>
  * 权限
- * @TableName permission
+ * </p>
+ *
+ * @author testjava
+ * @since 2020-01-12
  */
-@TableName(value ="permission")
 @Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("acl_permission")
+@ApiModel(value="Permission对象", description="权限")
 public class Permission implements Serializable {
-    /**
-     * 
-     */
-    @TableId(value = "permission_id")
-    private String permissionId;
 
-    /**
-     * 
-     */
-    @TableField(value = "pid")
-    private String pid;
-
-    /**
-     * 
-     */
-    @TableField(value = "name")
-    private String name;
-
-    /**
-     * 
-     */
-    @TableField(value = "type")
-    private Integer type;
-
-    /**
-     * 
-     */
-    @TableField(value = "permission_value")
-    private String permissionValue;
-
-    /**
-     * 
-     */
-    @TableField(value = "status")
-    private Integer status;
-
-    /**
-     * 
-     */
-    @TableField(value = "is_deleted")
-    private Integer isDeleted;
-
-    /**
-     * 
-     */
-    @TableField(value = "create_time")
-    private Date createTime;
-
-    /**
-     * 
-     */
-    @TableField(value = "update_time")
-    private Date updateTime;
-
-    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        Permission other = (Permission) that;
-        return (this.getPermissionId() == null ? other.getPermissionId() == null : this.getPermissionId().equals(other.getPermissionId()))
-            && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getType() == null ? other.getType() == null : this.getType().equals(other.getType()))
-            && (this.getPermissionValue() == null ? other.getPermissionValue() == null : this.getPermissionValue().equals(other.getPermissionValue()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
-    }
+    @ApiModelProperty(value = "编号")
+    @TableId(value = "id", type = IdType.ID_WORKER_STR)
+    private String id;
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getPermissionId() == null) ? 0 : getPermissionId().hashCode());
-        result = prime * result + ((getPid() == null) ? 0 : getPid().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getType() == null) ? 0 : getType().hashCode());
-        result = prime * result + ((getPermissionValue() == null) ? 0 : getPermissionValue().hashCode());
-        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
-        result = prime * result + ((getIsDeleted() == null) ? 0 : getIsDeleted().hashCode());
-        result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
-        result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
-        return result;
-    }
+    @ApiModelProperty(value = "所属上级")
+    private String pid;
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", permissionId=").append(permissionId);
-        sb.append(", pid=").append(pid);
-        sb.append(", name=").append(name);
-        sb.append(", type=").append(type);
-        sb.append(", permissionValue=").append(permissionValue);
-        sb.append(", status=").append(status);
-        sb.append(", isDeleted=").append(isDeleted);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", updateTime=").append(updateTime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+    @ApiModelProperty(value = "名称")
+    private String name;
+
+    @ApiModelProperty(value = "类型(1:菜单,2:按钮)")
+    private Integer type;
+
+    @ApiModelProperty(value = "权限值")
+    private String permissionValue;
+
+    @ApiModelProperty(value = "访问路径")
+    private String path;
+
+    @ApiModelProperty(value = "组件路径")
+    private String component;
+
+    @ApiModelProperty(value = "图标")
+    private String icon;
+
+    @ApiModelProperty(value = "状态(0:禁止,1:正常)")
+    private Integer status;
+
+    @ApiModelProperty(value = "层级")
+    @TableField(exist = false)
+    private Integer level;
+
+    @ApiModelProperty(value = "下级")
+    @TableField(exist = false)
+    private List<Permission> children;
+
+    @ApiModelProperty(value = "是否选中")
+    @TableField(exist = false)
+    private boolean isSelect;
+
+
+    @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除")
+    private Boolean isDeleted;
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    private Date gmtCreate;
+
+    @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date gmtModified;
+
+
 }

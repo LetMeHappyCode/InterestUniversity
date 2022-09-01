@@ -1,7 +1,6 @@
 package com.interest.security.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.interest.common.result.R;
 import com.interest.security.entity.SecurityUser;
 import com.interest.security.entity.User;
 import com.interest.security.security.TokenManager;
@@ -67,7 +66,9 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
     //3 认证失败调用的方法
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed)
             throws IOException, ServletException {
+
         ResponseUtil.out(response, Rsec.error());
+
     }
 
 }

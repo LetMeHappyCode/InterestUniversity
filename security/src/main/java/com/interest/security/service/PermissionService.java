@@ -1,7 +1,7 @@
 package com.interest.security.service;
 
-import com.interest.security.pojo.Permission;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.interest.security.pojo.Permission;
 
 import java.util.List;
 

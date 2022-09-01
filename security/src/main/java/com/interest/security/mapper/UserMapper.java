@@ -1,7 +1,7 @@
 package com.interest.security.mapper;
 
-import com.interest.security.pojo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.interest.security.pojo.User;
 
 /**
 * @author Administrator

@@ -2,9 +2,9 @@ package com.interest.security.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.interest.security.mapper.UserMapper;
 import com.interest.security.pojo.User;
 import com.interest.security.service.UserService;
-import com.interest.security.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 /**
