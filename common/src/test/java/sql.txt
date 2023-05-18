@@ -1,4 +1,0 @@
-SELECT * FROM `volunteer_info` WHERE ? volunteerId='0437667c688945569eebe1a452f211ee' ?
-
-Parameters: 86360500(String), 2(String)
-

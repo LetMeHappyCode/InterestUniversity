@@ -1,4 +1,4 @@
-package com.interest.common.utils;
+package com.interest.common.base.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -10,13 +10,13 @@ spring:
   datasource: # mysql数据库连接
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://101.43.210.106:3306/community?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    url: jdbc:mysql://117.50.163.207:3306/community?serverTimezone=GMT%2B8&characterEncoding=utf-8
     username: root
-    password: 123456@Qaz
+    password: 123
   cloud:
     nacos:
       discovery:
-        server-addr: 101.43.210.106:8849
+        server-addr: 117.50.163.207:8848
   redis:
     host: 101.43.210.106    #Redis服务器地址
     password: 123456@Qaz
@@ -43,3 +43,6 @@ mybatis-plus: #mybatis
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:com/interest/community/mapper/xml/*.xml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

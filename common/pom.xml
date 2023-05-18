@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>common</artifactId>
-    <groupId>com.interest</groupId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
 
     <parent>
@@ -14,7 +14,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 <!--    <packaging>jar</packaging>-->
-
+    <modules>
+        <module>base</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -33,7 +35,18 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!--nacos服务发现-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
 
+
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>2.0.9</version>
+        </dependency>
 
 
     </dependencies>

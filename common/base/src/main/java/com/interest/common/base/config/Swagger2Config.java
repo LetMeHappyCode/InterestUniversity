@@ -1,4 +1,4 @@
-package com.interest.base.config;
+package com.interest.common.base.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;

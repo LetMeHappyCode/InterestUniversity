@@ -1,4 +1,4 @@
-package com.interest.common.result;
+package com.interest.common.base.result;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

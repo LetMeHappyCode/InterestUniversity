@@ -1,6 +1,6 @@
 package com.interest.security.security;
 
-import com.interest.common.result.R;
+
 import com.interest.security.utils.ResponseUtil;
 import com.interest.security.utils.Rsec;
 import org.springframework.data.redis.core.RedisTemplate;

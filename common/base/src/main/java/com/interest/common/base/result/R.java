@@ -1,4 +1,4 @@
-package com.interest.common.result;
+package com.interest.common.base.result;
 
 import lombok.Data;
 
@@ -8,10 +8,11 @@ public class R {
 
     private String message;
 
+    private Object data;
     /**
      * 构造器私有
      */
-    private R(){}
+    public R(){}
 
     /**
      * 返回成功

@@ -1,9 +1,9 @@
 package com.interest.community.aliyun.oss.util.controller;
 
 import com.alibaba.fastjson2.JSONObject;
-import com.interest.common.exception.BusinessException;
-import com.interest.common.result.R;
-import com.interest.common.result.ResponseEnum;
+import com.interest.common.base.exception.BusinessException;
+import com.interest.common.base.result.R;
+import com.interest.common.base.result.ResponseEnum;
 import com.interest.community.aliyun.oss.util.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,6 +24,7 @@ import java.io.InputStream;
 public class FileController {
     @Resource
     private FileService fileService;
+
 
     /**
      * 文件上传
@@ -71,5 +72,7 @@ public class FileController {
 
         return returnMsg;
     }
+
+
 
 }

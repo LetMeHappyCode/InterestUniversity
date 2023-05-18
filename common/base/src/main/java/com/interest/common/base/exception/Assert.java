@@ -1,6 +1,6 @@
-package com.interest.common.exception;
+package com.interest.common.base.exception;
 
-import com.interest.common.result.ResponseEnum;
+import com.interest.common.base.result.ResponseEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 

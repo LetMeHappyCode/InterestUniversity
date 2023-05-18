@@ -1,6 +1,7 @@
 package com.interest.security.security;
 
-import com.interest.common.utils.MD5;
+
+import com.interest.common.base.utils.MD5;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 

@@ -1,11 +1,12 @@
 package com.interest.community.aliyun.oss.util.service;
 
-import com.interest.common.result.R;
+import com.interest.common.base.result.R;
+import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.List;
 
-
+@Service
 public interface FileService {
     //上传文件到阿里云
     String upload(InputStream inputStream, String module, String originalFilename);

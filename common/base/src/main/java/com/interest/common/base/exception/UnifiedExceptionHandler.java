@@ -1,7 +1,7 @@
-package com.interest.common.exception;
+package com.interest.common.base.exception;
 
-import com.interest.common.result.R;
-import com.interest.common.result.ResponseEnum;
+import com.interest.common.base.result.R;
+import com.interest.common.base.result.ResponseEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;
