@@ -12,14 +12,14 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://117.50.163.207:3306/community?serverTimezone=GMT%2B8&characterEncoding=utf-8
     username: root
-    password: 123
+    password: 123@Qwe
   cloud:
     nacos:
       discovery:
         server-addr: 117.50.163.207:8848
   redis:
-    host: 101.43.210.106    #Redis服务器地址
-    password: 123456@Qaz
+    host: 117.50.163.207    #Redis服务器地址
+    password: 123@Qaz
     port: 6379              #Redis服务器连接端口
     database: 0             #Redis数据库索引（默认为0）
     timeout: 1800000        #连接超时时间（毫秒）
