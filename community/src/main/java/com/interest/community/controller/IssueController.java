@@ -26,6 +26,20 @@ import java.util.List;
 @Slf4j
 public class IssueController {
 
+    static String 变量="中文变量";
+
+    public static void main(String[] args) {
+        String 创建 = 创建方法();
+        事件类 事件 = new 事件类();
+        System.out.println(事件.当前事件);
+        String 当前事件 = 事件.当前事件;
+
+    }
+    public static String 创建方法(){
+        return 变量;
+    }
+
+    
     @Autowired
     private IssueService issueService;
 
