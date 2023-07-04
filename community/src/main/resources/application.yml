@@ -46,3 +46,5 @@ mybatis-plus: #mybatis
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+ceshi:
+  name: ${测试:测试1}

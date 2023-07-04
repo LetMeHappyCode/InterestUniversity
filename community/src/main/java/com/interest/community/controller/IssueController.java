@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -111,5 +112,15 @@ public class IssueController {
         return name;
     }
 
+    //测试redis自增方法
+    @GetMapping("redisTest2")
+    public String testRedis2() {
+        //设置值到redis
+        redisTemplate.opsForValue().set("num",1);
+        //从redis获取值
+        redisTemplate.opsForValue().increment("num");
+        Integer num = (Integer)redisTemplate.opsForValue().get("num");
+        return num.toString();
+    }
 
 }

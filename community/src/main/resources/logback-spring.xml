@@ -4,7 +4,7 @@
     <contextName>interest</contextName>
 
     <!-- 日志的输出目录 -->
-    <property name="log.path" value="D:/Project/srbProject/log" />
+    <property name="log.path" value="C:/Project/srbProject/log" />
 
     <!--控制台日志格式：彩色日志-->
     <!-- magenta:洋红 -->

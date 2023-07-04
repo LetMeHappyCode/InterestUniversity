@@ -22,6 +22,7 @@
         <module>Adapter</module>
         <module>entity</module>
         <module>security</module>
+        <module>algorithm</module>
     </modules>
 
     <properties>
