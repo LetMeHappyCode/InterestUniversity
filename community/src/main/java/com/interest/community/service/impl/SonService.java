@@ -17,6 +17,12 @@ public class SonService {
     @SonTransaction
     public void sonMethod1(String args,Thread thread){
         System.out.println(args+"开启了线程");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(args+"结束了线程");
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -24,6 +30,12 @@ public class SonService {
     @SonTransaction
     public void sonMethod2(String args1, String args2, Thread thread) {
         System.out.println(args1 + "和" + args2 + "开启了线程");
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(args1 + "和" + args2 + "结束了线程");
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -31,6 +43,12 @@ public class SonService {
     @SonTransaction
     public void sonMethod3(String args, Thread thread) {
         System.out.println(args + "开启了线程");
+        try {
+            Thread.sleep(15000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(args + "结束了线程");
     }
 
     //sonMethod4方法没有使用线程池

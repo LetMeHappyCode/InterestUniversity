@@ -67,7 +67,9 @@ public class TransactionAop {
             map.remove(threadName+"sonDownLatch");
             map.remove(threadName+"rollBackFlag");
             map.remove(threadName+"exceptionVector");
-            throw exceptionVector.get(0);
+            if (exceptionVector.size() > 0){
+                throw exceptionVector.get(0);
+            }
         }
     }
 
