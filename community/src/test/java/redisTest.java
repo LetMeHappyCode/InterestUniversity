@@ -1,4 +1,5 @@
 import com.interest.community.CommunityApplication;
+import com.interest.community.service.impl.MainService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,9 @@ import javax.annotation.Resource;
 @SpringBootConfiguration
 public class redisTest {
 
+    @Resource
+    private MainService mainService;
+
     @Value("${ceshi.name}")
     String name;
 
@@ -20,7 +24,7 @@ public class redisTest {
     String port;
     @Test
     public void test(){
-        System.out.println(name);
+        mainService.test1();
     }
-
+    
 }
